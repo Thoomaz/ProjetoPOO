@@ -6,7 +6,7 @@ public abstract class GenericWindow {
     public GenericWindow(String title, int width, int height) {
         frame = new JFrame();
         frame.setSize(width, height);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setTitle(title);
         frame.setLocationRelativeTo(null);
     }

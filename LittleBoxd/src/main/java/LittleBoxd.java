@@ -1,24 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class LittleBoxd extends GenericWindow{
+public class LittleBoxd extends GenericWindow {
     private JButton mvsBtn;
     private JButton laterBtn;
     private JLabel titleLabel;
-    private JPanel painel;
-    public LittleBoxd() {
-        super("LittleBoxd", 500,250);
 
-        //Título
+    public LittleBoxd() {
+        super("LittleBoxd", 500, 250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Título
         titleLabel = new JLabel("LittleBoxd", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
 
-
-        //Botões
+        // Botões
         mvsBtn = new JButton("Filmes");
         laterBtn = new JButton("Ver mais tarde");
 
-        //Frame
+        // Adiciona ActionListener ao botão "Ver mais tarde"
+        laterBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LaterWindow laterWindow = new LaterWindow();
+                laterWindow.show();
+            }
+        });
+
+        // Frame
         frame.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -41,4 +52,3 @@ public class LittleBoxd extends GenericWindow{
         frame.add(laterBtn, c);
     }
 }
-
